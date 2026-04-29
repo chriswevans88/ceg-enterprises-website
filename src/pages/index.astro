@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'CEG Enterprises, LLC | Mobile Apps and Digital Products';
+const description =
+  'CEG Enterprises, LLC is a Florida-based company developing and managing mobile applications, digital products, and online technology projects.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow">Florida-based technology company</p>
+        <h1>Building mobile applications and digital products with long-term intent.</h1>
+        <p class="lead">
+          CEG Enterprises, LLC develops and manages consumer-facing software experiences,
+          digital properties, and online technology projects with a focus on practical utility,
+          dependable execution, and responsible growth.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="/projects/">View Focus Areas</a>
+          <a class="button secondary" href="/contact/">Contact the Company</a>
+        </div>
+      </div>
+      <aside class="signal-panel" aria-label="Company focus">
+        <div class="signal-row">
+          <span class="icon-box" aria-hidden="true">01</span>
+          <div>
+            <h3>Mobile Applications</h3>
+            <p class="muted">Consumer software concepts, product planning, and app-based experiences.</p>
+          </div>
+        </div>
+        <div class="signal-row">
+          <span class="icon-box" aria-hidden="true">02</span>
+          <div>
+            <h3>Digital Products</h3>
+            <p class="muted">Owned web properties, product systems, and online technology initiatives.</p>
+          </div>
+        </div>
+        <div class="signal-row">
+          <span class="icon-box" aria-hidden="true">03</span>
+          <div>
+            <h3>Project Management</h3>
+            <p class="muted">Focused development and operational stewardship for technology projects.</p>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section band">
+    <div class="container split">
+      <div>
+        <p class="eyebrow">Company positioning</p>
+        <h2>Technology projects built on clarity, restraint, and durable execution.</h2>
+      </div>
+      <div>
+        <p class="lead">
+          The company works across early product development, digital property management, and
+          consumer-facing software experiences. Its approach is conservative and deliberate:
+          identify useful opportunities, build thoughtfully, and manage digital assets with care.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <p class="eyebrow">What CEG focuses on</p>
+      <h2>Software and digital properties for modern consumer use cases.</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Application Concepts</h3>
+          <p>Planning and developing mobile-first software experiences for practical consumer needs.</p>
+        </article>
+        <article class="card">
+          <h3>Digital Operations</h3>
+          <p>Managing online technology projects, web properties, and the systems that support them.</p>
+        </article>
+        <article class="card">
+          <h3>Product Foundations</h3>
+          <p>Creating the technical and operational groundwork for future software initiatives.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

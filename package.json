@@ -1,0 +1,23 @@
+{
+  "name": "ceg-enterprises-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/sitemap": "^3.2.1",
+    "astro": "^5.1.1",
+    "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "@rollup/wasm-node": "^4.60.2"
+  },
+  "overrides": {
+    "rollup": "npm:@rollup/wasm-node@4.60.2"
+  }
+}

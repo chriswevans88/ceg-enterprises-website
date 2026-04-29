@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = 'Projects | CEG Enterprises, LLC';
+const description =
+  'Explore the project focus areas of CEG Enterprises, LLC, including mobile applications, digital products, and online technology initiatives.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Projects</p>
+      <h1>Current work centers on owned software initiatives and digital properties.</h1>
+      <p class="lead">
+        CEG Enterprises, LLC is focused on developing and managing technology projects. This
+        page describes the company&rsquo;s areas of work without implying third-party clients,
+        public launches, or external partnerships.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid-3">
+        <article class="card">
+          <h3>Mobile Applications</h3>
+          <p>
+            Product planning and development for app-based consumer experiences, including
+            software concepts intended for mobile-first usage.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Digital Products</h3>
+          <p>
+            Development of owned digital products, web experiences, and product infrastructure
+            that can support future technology initiatives.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Online Technology Projects</h3>
+          <p>
+            Management of digital properties and online systems with attention to reliability,
+            presentation, and responsible data practices.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
