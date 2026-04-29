@@ -1,6 +1,6 @@
-# CEG Enterprises, LLC Website
+# CEGE Enterprises LLC Website
 
-Company website for CEG Enterprises, LLC, built with Astro and TypeScript.
+Company website for CEGE Enterprises LLC, built with Astro and TypeScript.
 
 ## Local Development
 
