@@ -1,87 +1,93 @@
 ---
+import CTASection from '../components/CTASection.astro';
+import ProcessTimeline from '../components/ProcessTimeline.astro';
+import SectionShell from '../components/SectionShell.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import StudioVisual from '../components/StudioVisual.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import WorkGrid from '../components/WorkGrid.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { services } from '../data/site';
 
-const title = 'CEGE Enterprises LLC | Mobile Apps and Digital Products';
+const title = 'CEGE Enterprises LLC | Product Engineering Studio';
 const description =
-  'CEGE Enterprises LLC is a Florida-based company developing and managing mobile applications, digital products, and online technology projects.';
+  'CEGE Enterprises LLC is a founder-led digital product studio building mobile apps, modern websites, and intelligent digital systems with launch-grade polish.';
 ---
 
 <BaseLayout title={title} description={description}>
   <section class="hero">
     <div class="container hero-grid">
-      <div>
-        <p class="eyebrow">Florida-based technology company</p>
-        <h1>Building mobile applications and digital products with long-term intent.</h1>
-        <p class="lead">
-          CEGE Enterprises LLC develops and manages consumer-facing software experiences,
-          digital properties, and online technology projects with a focus on practical utility,
-          clear product thinking, and dependable execution.
+      <div class="hero-copy">
+        <p class="eyebrow">Digital product studio</p>
+        <h1>Mobile apps, websites, and AI systems built with <span class="no-break">launch-grade</span> polish.</h1>
+        <p class="hero-lead">
+          CEGE Enterprises LLC is a founder-led studio focused on modern product strategy,
+          clean engineering, and polished digital experiences.
         </p>
         <div class="hero-actions">
-          <a class="button primary" href="/projects/">View Focus Areas</a>
-          <a class="button secondary" href="/contact/">Contact the Company</a>
+          <a class="button button-primary" href="/contact/#inquiry">Start a Project</a>
+          <a class="button button-ghost" href="/services/">View Services</a>
         </div>
       </div>
-      <aside class="signal-panel" aria-label="Company focus">
-        <div class="signal-row">
-          <span class="icon-box" aria-hidden="true">01</span>
-          <div>
-            <h3>Mobile Applications</h3>
-            <p class="muted">Consumer software concepts, product planning, and app-based experiences.</p>
-          </div>
-        </div>
-        <div class="signal-row">
-          <span class="icon-box" aria-hidden="true">02</span>
-          <div>
-            <h3>Digital Products</h3>
-            <p class="muted">Owned web properties, product systems, and online technology initiatives.</p>
-          </div>
-        </div>
-        <div class="signal-row">
-          <span class="icon-box" aria-hidden="true">03</span>
-          <div>
-            <h3>Project Management</h3>
-            <p class="muted">Focused development and operational stewardship for technology projects.</p>
-          </div>
-        </div>
-      </aside>
+      <StudioVisual />
     </div>
-  </section>
-
-  <section class="section band">
-    <div class="container split">
-      <div>
-        <p class="eyebrow">Company positioning</p>
-        <h2>Technology projects built on clarity, restraint, and durable execution.</h2>
-      </div>
-      <div>
-        <p class="lead">
-          The company works across early product development, digital property management, and
-          consumer-facing software experiences. Its approach is conservative and deliberate:
-          identify useful opportunities, build thoughtfully, and manage digital assets with care.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
     <div class="container">
-      <p class="eyebrow">What CEGE focuses on</p>
-      <h2>Software and digital properties for modern consumer use cases.</h2>
-      <div class="grid-3">
-        <article class="card">
-          <h3>Application Concepts</h3>
-          <p>Planning and developing mobile-first software experiences for practical consumer needs.</p>
-        </article>
-        <article class="card">
-          <h3>Digital Operations</h3>
-          <p>Managing online technology projects, web properties, and the systems that support them.</p>
-        </article>
-        <article class="card">
-          <h3>Product Foundations</h3>
-          <p>Creating the technical and operational groundwork for future software initiatives.</p>
-        </article>
+      <TrustStrip />
+    </div>
+  </section>
+
+  <SectionShell
+    id="services"
+    eyebrow="Services"
+    title="End-to-end digital product execution."
+    lead="From first product decisions to release support, CEGE builds lean, polished systems for mobile, web, and AI-enabled workflows."
+  >
+    <div class="card-grid card-grid-3">
+      {services.map((service) => <ServiceCard service={service} />)}
+    </div>
+  </SectionShell>
+
+  <SectionShell
+    id="work"
+    variant="band"
+    eyebrow="Selected Work"
+    title="Product experiences shaped for clarity and trust."
+    lead="Representative categories across app, web, AI, analytics, operations, and commerce work."
+  >
+    <WorkGrid limit={3} />
+    <div class="section-actions">
+      <a class="text-link" href="/work/">View product categories</a>
+    </div>
+  </SectionShell>
+
+  <SectionShell
+    id="process"
+    eyebrow="Process"
+    title="A clear process. Predictable progress."
+    lead="A structured path keeps product quality, privacy, responsiveness, and launch needs visible from the beginning."
+  >
+    <ProcessTimeline />
+  </SectionShell>
+
+  <section class="section-shell section-tight">
+    <div class="container studio-split">
+      <div>
+        <p class="eyebrow">About CEGE</p>
+        <h2>A founder-led studio for products that need to ship well.</h2>
+      </div>
+      <div class="stacked-copy">
+        <p>
+          CEGE Enterprises LLC designs and builds digital products with a focus on quality,
+          restraint, and dependable execution.
+        </p>
+        <p>
+          The work is mobile-first, privacy-conscious, and organized around clear product
+          decisions instead of unnecessary complexity.
+        </p>
+        <a class="text-link" href="/about/">Learn about CEGE</a>
       </div>
     </div>
   </section>
+
+  <CTASection />
 </BaseLayout>

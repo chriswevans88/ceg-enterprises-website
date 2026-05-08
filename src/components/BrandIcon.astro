@@ -1,0 +1,50 @@
+---
+interface Props {
+  class?: string;
+  idPrefix?: string;
+  title?: string;
+}
+
+const { class: className = '', idPrefix = 'cege-brand-icon', title } = Astro.props;
+const arcGradient = `${idPrefix}-arc`;
+const barGradient = `${idPrefix}-bars`;
+const barStroke = `${idPrefix}-bar-stroke`;
+---
+
+<svg
+  class:list={['brand-icon', className]}
+  viewBox="0 0 64 64"
+  fill="none"
+  role={title ? 'img' : undefined}
+  aria-label={title}
+  aria-hidden={title ? undefined : 'true'}
+>
+  {title && <title>{title}</title>}
+  <defs>
+    <linearGradient id={arcGradient} x1="20" y1="8" x2="47" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#c8fbff" />
+      <stop offset="0.44" stop-color="#41d7ff" />
+      <stop offset="0.74" stop-color="#4e8dff" />
+      <stop offset="1" stop-color="#7866ff" />
+    </linearGradient>
+    <linearGradient id={barGradient} x1="30" y1="19" x2="56" y2="45" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" />
+      <stop offset="0.5" stop-color="#dfe8f3" />
+      <stop offset="1" stop-color="#aebbd0" />
+    </linearGradient>
+    <linearGradient id={barStroke} x1="30" y1="19" x2="56" y2="45" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.92" />
+      <stop offset="1" stop-color="#778aa5" stop-opacity="0.82" />
+    </linearGradient>
+  </defs>
+  <path
+    class="brand-icon-arc"
+    d="M48.6 11.7C44.1 8.6 38.7 6.8 32.9 6.8C18 6.8 6 18.8 6 33.5C6 48.3 18 60 32.9 60C38.7 60 44.1 58.2 48.6 55"
+    stroke={`url(#${arcGradient})`}
+    stroke-width="7.8"
+    stroke-linecap="round"
+  />
+  <rect x="28.6" y="21.2" width="27.8" height="5.7" rx="1.45" fill={`url(#${barGradient})`} stroke={`url(#${barStroke})`} stroke-width="0.9" />
+  <rect x="28.6" y="31.2" width="27.8" height="5.7" rx="1.45" fill={`url(#${barGradient})`} stroke={`url(#${barStroke})`} stroke-width="0.9" />
+  <rect x="28.6" y="41.2" width="27.8" height="5.7" rx="1.45" fill={`url(#${barGradient})`} stroke={`url(#${barStroke})`} stroke-width="0.9" />
+</svg>

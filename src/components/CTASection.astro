@@ -1,0 +1,27 @@
+---
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  lead?: string;
+}
+
+const {
+  eyebrow = 'Start a project',
+  title = 'Bring a serious product idea into a clear build path.',
+  lead = 'Share the goals, constraints, and timeline. CEGE will help shape the next practical step.'
+} = Astro.props;
+---
+
+<section class="cta-block">
+  <div class="container cta-inner">
+    <div>
+      <p class="eyebrow">{eyebrow}</p>
+      <h2>{title}</h2>
+      <p>{lead}</p>
+    </div>
+    <div class="cta-actions">
+      <a class="button button-primary" href="/contact/#inquiry">Start a Project</a>
+      <a class="button button-ghost" href="/services/">View Services</a>
+    </div>
+  </div>
+</section>

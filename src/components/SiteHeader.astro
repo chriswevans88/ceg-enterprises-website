@@ -1,42 +1,65 @@
 ---
-const navItems = [
-  { href: '/', label: 'Home' },
-  { href: '/about/', label: 'About' },
-  { href: '/projects/', label: 'Projects' },
-  { href: '/contact/', label: 'Contact' }
-];
+import BrandIcon from './BrandIcon.astro';
+import { navigation } from '../data/site';
 
 const currentPath = Astro.url.pathname;
+
+const isActive = (href: string) => {
+  if (href === '/') {
+    return currentPath === href;
+  }
+
+  return currentPath === href || currentPath.startsWith(href);
+};
 ---
 
 <header class="site-header">
   <div class="container nav-wrap">
     <a class="brand" href="/" aria-label="CEGE Enterprises home">
-      <span class="brand-mark" aria-hidden="true">CEGE</span>
+      <span class="brand-mark" aria-hidden="true">
+        <BrandIcon idPrefix="brand-header" />
+      </span>
       <span>CEGE Enterprises LLC</span>
     </a>
     <button class="nav-toggle" type="button" aria-label="Open navigation" aria-controls="site-navigation" aria-expanded="false">
-      <span></span>
+      <span class="nav-toggle-line" aria-hidden="true"></span>
+      <span class="nav-toggle-line" aria-hidden="true"></span>
     </button>
     <nav id="site-navigation" class="nav-links" aria-label="Primary navigation">
       {
-        navItems.map((item) => (
-          <a href={item.href} aria-current={currentPath === item.href ? 'page' : undefined}>
+        navigation.map((item) => (
+          <a href={item.href} aria-current={isActive(item.href) ? 'page' : undefined}>
             {item.label}
           </a>
         ))
       }
     </nav>
+    <a class="button button-primary nav-cta" href="/contact/#inquiry">Start a Project</a>
   </div>
 </header>
 
 <script>
   const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
   const nav = document.querySelector<HTMLElement>('#site-navigation');
+  const navLinks = nav?.querySelectorAll<HTMLAnchorElement>('a') ?? [];
+
+  const setMenuState = (isOpen: boolean) => {
+    nav?.classList.toggle('is-open', isOpen);
+    toggle?.setAttribute('aria-expanded', String(isOpen));
+    document.body.classList.toggle('menu-open', isOpen);
+  };
 
   toggle?.addEventListener('click', () => {
-    const isOpen = nav?.classList.toggle('is-open') ?? false;
-    toggle.setAttribute('aria-expanded', String(isOpen));
-    document.body.classList.toggle('menu-open', isOpen);
+    setMenuState(!nav?.classList.contains('is-open'));
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => setMenuState(false));
+  });
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+      setMenuState(false);
+    }
   });
 </script>

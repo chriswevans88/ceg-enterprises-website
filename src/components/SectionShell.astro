@@ -1,0 +1,34 @@
+---
+interface Props {
+  id?: string;
+  eyebrow?: string;
+  title?: string;
+  lead?: string;
+  align?: 'left' | 'center';
+  variant?: 'default' | 'band' | 'tight';
+  class?: string;
+}
+
+const {
+  id,
+  eyebrow,
+  title,
+  lead,
+  align = 'left',
+  variant = 'default',
+  class: className = ''
+} = Astro.props;
+---
+
+<section id={id} class:list={['section-shell', `section-${variant}`, className]}>
+  <div class="container">
+    {(eyebrow || title || lead) && (
+      <div class:list={['section-intro', align === 'center' && 'section-intro-center']}>
+        {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+        {title && <h2>{title}</h2>}
+        {lead && <p class="section-lead">{lead}</p>}
+      </div>
+    )}
+    <slot />
+  </div>
+</section>

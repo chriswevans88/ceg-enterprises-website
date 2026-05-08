@@ -1,0 +1,31 @@
+---
+import { workItems } from '../data/site';
+import GlassCard from './GlassCard.astro';
+import Icon from './Icon.astro';
+
+interface Props {
+  limit?: number;
+}
+
+const { limit } = Astro.props;
+const items = typeof limit === 'number' ? workItems.slice(0, limit) : workItems;
+---
+
+<div class="work-grid">
+  {
+    items.map((item) => (
+      <GlassCard class={`work-card work-card-${item.tone}`}>
+        <div class="work-art" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="work-card-body">
+          <span class="icon-badge"><Icon name={item.icon} /></span>
+          <h3>{item.title}</h3>
+          <p>{item.description}</p>
+        </div>
+      </GlassCard>
+    ))
+  }
+</div>

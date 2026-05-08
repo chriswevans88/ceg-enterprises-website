@@ -1,0 +1,22 @@
+---
+import GlassCard from './GlassCard.astro';
+import Icon from './Icon.astro';
+
+interface Props {
+  service: {
+    title: string;
+    description: string;
+    icon: string;
+  };
+}
+
+const { service } = Astro.props;
+---
+
+<GlassCard class="service-card">
+  <span class="icon-badge">
+    <Icon name={service.icon} />
+  </span>
+  <h3>{service.title}</h3>
+  <p>{service.description}</p>
+</GlassCard>
