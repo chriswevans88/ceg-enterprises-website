@@ -1,0 +1,70 @@
+---
+import CTASection from '../components/CTASection.astro';
+import GlassCard from '../components/GlassCard.astro';
+import Icon from '../components/Icon.astro';
+import SectionShell from '../components/SectionShell.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import TrustStrip from '../components/TrustStrip.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { services } from '../data/site';
+
+const title = 'Services | CEGE Enterprises LLC';
+const description =
+  'Services from CEGE Enterprises LLC include mobile app development, modern website development, AI workflows, product strategy, UX systems, launch, and support.';
+
+const engagementItems = [
+  'Product strategy and scope definition',
+  'Mobile-first UX and interface systems',
+  'Modern frontend and backend implementation',
+  'AI workflow planning and integration',
+  'Testing, launch preparation, and support'
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="page-hero">
+    <div class="container page-hero-grid">
+      <div>
+        <p class="eyebrow">Services</p>
+        <h1>End-to-end product execution for mobile, web, and AI systems.</h1>
+        <p class="hero-lead">
+          CEGE helps turn focused product ideas into polished digital experiences with a clear
+          path from strategy through launch.
+        </p>
+      </div>
+      <GlassCard class="summary-card">
+        <span class="icon-badge"><Icon name="spark" /></span>
+        <h2>Built for serious product work.</h2>
+        <p>Lean planning, sharp interface direction, clean engineering, and practical release support.</p>
+      </GlassCard>
+    </div>
+  </section>
+
+  <SectionShell variant="band">
+    <div class="card-grid card-grid-3">
+      {services.map((service) => <ServiceCard service={service} />)}
+    </div>
+  </SectionShell>
+
+  <section class="section-shell section-tight">
+    <div class="container studio-split">
+      <div>
+        <p class="eyebrow">Engagement Shape</p>
+        <h2>Focused enough to move quickly. Structured enough to launch cleanly.</h2>
+      </div>
+      <GlassCard class="list-card">
+        <ul class="check-list">
+          {engagementItems.map((item) => <li><Icon name="check" size={18} />{item}</li>)}
+        </ul>
+      </GlassCard>
+    </div>
+  </section>
+
+  <section class="section-shell section-tight">
+    <div class="container">
+      <TrustStrip />
+    </div>
+  </section>
+
+  <CTASection title="Need a clean build path for a product or platform?" lead="Start with the service area and outcome. CEGE will help turn it into a practical scope." />
+</BaseLayout>

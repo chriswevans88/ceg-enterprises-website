@@ -1,0 +1,50 @@
+---
+import CTASection from '../components/CTASection.astro';
+import GlassCard from '../components/GlassCard.astro';
+import Icon from '../components/Icon.astro';
+import ProcessTimeline from '../components/ProcessTimeline.astro';
+import SectionShell from '../components/SectionShell.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { qualityGates } from '../data/site';
+
+const title = 'Process | CEGE Enterprises LLC';
+const description =
+  'The CEGE Enterprises LLC product process covers discovery, architecture, design, development, testing, launch, and ongoing improvement.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="page-hero">
+    <div class="container">
+      <p class="eyebrow">Process</p>
+      <h1>A clear process for products that need dependable execution.</h1>
+      <p class="hero-lead">
+        The workflow is structured to keep product decisions, engineering quality, privacy,
+        responsiveness, and launch details visible throughout the build.
+      </p>
+    </div>
+  </section>
+
+  <SectionShell variant="band">
+    <ProcessTimeline />
+  </SectionShell>
+
+  <SectionShell
+    eyebrow="Quality Gates"
+    title="Checks that keep the work grounded."
+    lead="Every engagement needs the right level of review. These checkpoints keep the build practical and credible."
+  >
+    <div class="card-grid card-grid-4">
+      {
+        qualityGates.map((gate) => (
+          <GlassCard class="value-card">
+            <span class="icon-badge"><Icon name={gate.icon} /></span>
+            <h3>{gate.title}</h3>
+            <p>{gate.description}</p>
+          </GlassCard>
+        ))
+      }
+    </div>
+  </SectionShell>
+
+  <CTASection title="Ready to define the next release?" lead="A concise discovery pass can turn a product idea into scope, priorities, and a build plan." />
+</BaseLayout>

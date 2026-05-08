@@ -1,0 +1,41 @@
+---
+interface Props {
+  class?: string;
+  title?: string;
+}
+
+const { class: className = '', title = 'CEGE Enterprises LLC' } = Astro.props;
+---
+
+<svg
+  class:list={['brand-wordmark', className]}
+  viewBox="0 0 520 150"
+  fill="none"
+  role="img"
+  aria-label={title}
+>
+  <title>{title}</title>
+  <defs>
+    <linearGradient id="wordmark-white" x1="70" y1="18" x2="244" y2="108" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" />
+      <stop offset="0.5" stop-color="#edf5ff" />
+      <stop offset="1" stop-color="#aebbd0" />
+    </linearGradient>
+    <linearGradient id="wordmark-blue" x1="186" y1="20" x2="496" y2="90" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#37f1ff" />
+      <stop offset="0.55" stop-color="#1aa9ff" />
+      <stop offset="1" stop-color="#1778ff" />
+    </linearGradient>
+  </defs>
+
+  <path d="M103 27H46C27.8 27 18 38.1 18 56.5V73.5C18 91.9 27.8 103 46 103H103" stroke="url(#wordmark-white)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+  <rect x="135" y="27" width="80" height="14" rx="3" fill="url(#wordmark-blue)" />
+  <rect x="135" y="58" width="80" height="14" rx="3" fill="url(#wordmark-blue)" />
+  <rect x="135" y="89" width="80" height="14" rx="3" fill="url(#wordmark-blue)" />
+  <path d="M335 27H276C257.8 27 248 38.1 248 56.5V73.5C248 91.9 257.8 103 276 103H333C348.5 103 358 94.6 358 80V65H314" stroke="url(#wordmark-white)" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" />
+  <rect x="390" y="27" width="90" height="14" rx="3" fill="url(#wordmark-blue)" />
+  <rect x="390" y="58" width="90" height="14" rx="3" fill="url(#wordmark-blue)" />
+  <rect x="390" y="89" width="90" height="14" rx="3" fill="url(#wordmark-blue)" />
+
+  <text x="20" y="139" fill="#f5f8ff" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="600" letter-spacing="13">ENTERPRISES LLC</text>
+</svg>

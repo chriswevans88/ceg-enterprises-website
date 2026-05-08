@@ -1,0 +1,40 @@
+---
+import CTASection from './CTASection.astro';
+import SectionShell from './SectionShell.astro';
+import WorkGrid from './WorkGrid.astro';
+---
+
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Selected Work</p>
+    <h1>Product experiences built for polish, utility, and long-term clarity.</h1>
+    <p class="hero-lead">
+      Representative categories across app, web, AI, analytics, operations, and commerce work.
+    </p>
+  </div>
+</section>
+
+<SectionShell variant="band">
+  <WorkGrid />
+</SectionShell>
+
+<section class="section-shell section-tight">
+  <div class="container studio-split">
+    <div>
+      <p class="eyebrow">Capabilities in Practice</p>
+      <h2>Private by default. Clear in capability.</h2>
+    </div>
+    <div class="stacked-copy">
+      <p>
+        CEGE keeps public examples generic and tasteful while communicating the types of
+        systems the studio can plan, design, build, and support.
+      </p>
+      <p>
+        The emphasis is not on inflated proof. It is on strong product taste, credible
+        process, and a professional path to release.
+      </p>
+    </div>
+  </div>
+</section>
+
+<CTASection title="Have a product category in mind?" lead="Share the platform, audience, and outcome. CEGE will help shape the first practical version." />
