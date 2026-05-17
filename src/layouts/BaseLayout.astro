@@ -1,6 +1,7 @@
 ---
 import SiteFooter from '../components/SiteFooter.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import { company } from '../data/site';
 import '../styles/global.css';
 
 interface Props {
@@ -9,9 +10,29 @@ interface Props {
   image?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, image = '/og-logo.png' } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://cegeenterprises.com');
-const socialImage = new URL('/og-logo.png', Astro.site ?? 'https://cegeenterprises.com');
+const socialImage = new URL(image, Astro.site ?? 'https://cegeenterprises.com');
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: company.name,
+  founder: {
+    '@type': 'Person',
+    name: company.founder
+  },
+  url: 'https://cegeenterprises.com',
+  email: company.email,
+  areaServed: 'United States',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Parkland',
+    addressRegion: 'FL',
+    addressCountry: 'US'
+  },
+  sameAs: [company.upworkUrl],
+  description: company.description
+};
 ---
 
 <!doctype html>
@@ -36,7 +57,8 @@ const socialImage = new URL('/og-logo.png', Astro.site ?? 'https://cegeenterpris
     <meta property="og:image:alt" content="CEGE Enterprises LLC logo" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:image" content={socialImage} />
-    <meta name="theme-color" content="#050914" />
+    <meta name="theme-color" content="#f8f4ed" />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
   </head>
   <body>
     <div class="site-shell">

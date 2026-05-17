@@ -4,11 +4,11 @@ import GlassCard from '../components/GlassCard.astro';
 import Icon from '../components/Icon.astro';
 import SectionShell from '../components/SectionShell.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { studioValues } from '../data/site';
+import { company, credentials, studioValues } from '../data/site';
 
 const title = 'About | CEGE Enterprises LLC';
 const description =
-  'Learn about CEGE Enterprises LLC, a founder-led digital product studio focused on polished mobile apps, websites, and intelligent systems.';
+  'Learn about CEGE Enterprises LLC, a founder-led digital systems studio focused on AI automation, mobile app planning, web apps, MVP prototypes, conversion websites, and lead systems.';
 ---
 
 <BaseLayout title={title} description={description}>
@@ -16,26 +16,52 @@ const description =
     <div class="container page-hero-grid">
       <div>
         <p class="eyebrow">About CEGE</p>
-        <h1>A founder-led studio for digital products that need to ship well.</h1>
+        <h1>A founder-led studio for practical digital systems that need to look credible and work clearly.</h1>
         <p class="hero-lead">
-          CEGE Enterprises LLC is a Florida-based digital product studio focused on high-quality
-          apps, websites, and intelligent systems with a long-term mindset.
+          CEGE Enterprises LLC is a Florida-based digital systems studio serving clients who need
+          AI automation, mobile app planning, web apps, websites, dashboards, and launch support
+          with a clear path from idea to execution.
         </p>
       </div>
       <GlassCard class="identity-card">
         <span class="icon-badge"><Icon name="building" /></span>
-        <h2>CEGE Enterprises LLC</h2>
-        <p>Public company website for product strategy, software development, and support inquiries.</p>
-        <a class="text-link" href="/contact/">Contact the studio</a>
+        <h2>{company.name}</h2>
+        <p>{company.location}</p>
+        <p>
+          Public company site for project inquiries, portfolio review, support, privacy, and
+          marketplace profile verification.
+        </p>
+        <a class="text-link" href={company.upworkUrl}>View marketplace profile</a>
       </GlassCard>
+    </div>
+  </section>
+
+  <section class="section-shell section-tight founder-note">
+    <div class="container studio-split">
+      <div>
+        <p class="eyebrow">The Point of View</p>
+        <h2>Good digital work should be clear before it is impressive.</h2>
+      </div>
+      <div class="stacked-copy">
+        <p>
+          CEGE focuses on the parts of a project that make it useful in the real world: the offer,
+          the user journey, the interface, the workflow, the support path, and the handoff. The
+          goal is a system that a client can understand, operate, and confidently show to others.
+        </p>
+        <p>
+          That may be an internal GPT command center, a lead-recovery funnel, a mobile app plan, a
+          conversion website, a product MVP, or a launch operations dashboard. Across each service
+          line, the work is grounded in practical scope, professional presentation, and release readiness.
+        </p>
+      </div>
     </div>
   </section>
 
   <SectionShell
     variant="band"
     eyebrow="Operating Style"
-    title="Premium product work, kept practical."
-    lead="CEGE combines product strategy, modern engineering, and careful launch planning without overcomplicating the engagement."
+    title="Founder-led does not mean informal."
+    lead="It means senior attention, direct communication, and accountability without unnecessary layers."
   >
     <div class="card-grid card-grid-4">
       {
@@ -50,24 +76,26 @@ const description =
     </div>
   </SectionShell>
 
-  <section class="section-shell section-tight">
-    <div class="container studio-split">
-      <div>
-        <p class="eyebrow">What Matters</p>
-        <h2>Strong product judgment before flashy production.</h2>
-      </div>
-      <div class="stacked-copy">
-        <p>
-          The studio is built for clients who need clear direction, polished interfaces,
-          reliable implementation, and a careful path to release.
-        </p>
-        <p>
-          That means concise planning, visible quality checks, privacy-conscious decisions,
-          and support paths that feel legitimate from day one.
-        </p>
-      </div>
+  <SectionShell
+    eyebrow="Relevant Training"
+    title="Credentials that support the current service mix."
+    lead="The public credentials support AI adoption, product execution, UX thinking, cloud literacy, mobile and web planning, and structured delivery."
+  >
+    <div class="credential-grid">
+      {
+        credentials.map((credential) => (
+          <GlassCard class="credential-card">
+            <span>{credential.provider}</span>
+            <h3>{credential.title}</h3>
+            <p>{credential.focus}</p>
+          </GlassCard>
+        ))
+      }
     </div>
-  </section>
+  </SectionShell>
 
-  <CTASection title="Have a product that needs a sharper build path?" lead="Start with the essentials: goals, users, constraints, and what needs to launch first." />
+  <CTASection
+    title="Need a digital system planned and built with clear ownership?"
+    lead="Share the outcome, target platform, timeline, and current materials. CEGE can help shape the next practical step."
+  />
 </BaseLayout>

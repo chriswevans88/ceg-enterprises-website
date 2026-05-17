@@ -9,17 +9,17 @@ import { qualityGates } from '../data/site';
 
 const title = 'Process | CEGE Enterprises LLC';
 const description =
-  'The CEGE Enterprises LLC product process covers discovery, architecture, design, development, testing, launch, and ongoing improvement.';
+  'The CEGE Enterprises LLC process clarifies goals, scopes fixed-scope builds, designs usable workflows and app screens, QA checks the experience, and prepares clean handoffs.';
 ---
 
 <BaseLayout title={title} description={description}>
   <section class="page-hero">
     <div class="container">
       <p class="eyebrow">Process</p>
-      <h1>A clear process for products that need dependable execution.</h1>
+      <h1>A structured build process for mobile, web, AI, and automation projects.</h1>
       <p class="hero-lead">
-        The workflow is structured to keep product decisions, engineering quality, privacy,
-        responsiveness, and launch details visible throughout the build.
+        The workflow is designed for focused projects where the first release needs to be clear
+        enough to test, present, submit, automate, or hand off.
       </p>
     </div>
   </section>
@@ -28,10 +28,32 @@ const description =
     <ProcessTimeline />
   </SectionShell>
 
+  <section class="section-shell section-tight">
+    <div class="container studio-split">
+      <div>
+        <p class="eyebrow">Why This Works</p>
+        <h2>The project plan is part of the deliverable.</h2>
+      </div>
+      <div class="stacked-copy">
+        <p>
+          Many digital projects struggle because the scope, user journey, release requirements, or
+          handoff plan are not clear enough. CEGE addresses those decisions early, before design
+          and development turn small gaps into expensive rework.
+        </p>
+        <p>
+          The work stays grounded in visible decisions: what the user sees, what the system does,
+          what the client can manage, what platform requirements matter, and what should happen
+          after launch.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <SectionShell
+    variant="band"
     eyebrow="Quality Gates"
-    title="Checks that keep the work grounded."
-    lead="Every engagement needs the right level of review. These checkpoints keep the build practical and credible."
+    title="Checks that keep fast work professional."
+    lead="Moving quickly still requires review around copy, layout, mobile behavior, forms, automations, release requirements, and handoff."
   >
     <div class="card-grid card-grid-4">
       {
@@ -46,5 +68,8 @@ const description =
     </div>
   </SectionShell>
 
-  <CTASection title="Ready to define the next release?" lead="A concise discovery pass can turn a product idea into scope, priorities, and a build plan." />
+  <CTASection
+    title="Ready to define a practical build path?"
+    lead="Start with the outcome, audience, platform, timeline, and current materials. CEGE can help define the first useful release."
+  />
 </BaseLayout>

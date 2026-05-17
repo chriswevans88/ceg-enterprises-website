@@ -1,16 +1,30 @@
 ---
 import CTASection from './CTASection.astro';
+import GlassCard from './GlassCard.astro';
+import Icon from './Icon.astro';
 import SectionShell from './SectionShell.astro';
 import WorkGrid from './WorkGrid.astro';
+import { workItems } from '../data/site';
 ---
 
-<section class="page-hero">
-  <div class="container">
-    <p class="eyebrow">Selected Work</p>
-    <h1>Product experiences built for polish, utility, and long-term clarity.</h1>
-    <p class="hero-lead">
-      Representative categories across app, web, AI, analytics, operations, and commerce work.
-    </p>
+<section class="page-hero work-hero">
+  <div class="container page-hero-grid">
+    <div>
+      <p class="eyebrow">Selected Work</p>
+      <h1>Selected work across AI workflows, lead systems, dashboards, and web product planning.</h1>
+      <p class="hero-lead">
+        These public examples show the real shape of CEGE projects: AI assistants, lead recovery
+        systems, conversion websites, MVP planning, launch dashboards, and creative automation.
+      </p>
+    </div>
+    <GlassCard class="summary-card proof-card">
+      <span class="icon-badge"><Icon name="check" /></span>
+      <h2>Clear context, not just screenshots.</h2>
+      <p>
+        Each example is framed around the business problem, the system being built, and the value
+        a client would need from the handoff.
+      </p>
+    </GlassCard>
   </div>
 </section>
 
@@ -19,22 +33,38 @@ import WorkGrid from './WorkGrid.astro';
 </SectionShell>
 
 <section class="section-shell section-tight">
-  <div class="container studio-split">
-    <div>
-      <p class="eyebrow">Capabilities in Practice</p>
-      <h2>Private by default. Clear in capability.</h2>
-    </div>
-    <div class="stacked-copy">
-      <p>
-        CEGE keeps public examples generic and tasteful while communicating the types of
-        systems the studio can plan, design, build, and support.
-      </p>
-      <p>
-        The emphasis is not on inflated proof. It is on strong product taste, credible
-        process, and a professional path to release.
+  <div class="container case-study-list">
+    <div class="section-intro">
+      <p class="eyebrow">Case Study Notes</p>
+      <h2>What each project demonstrates.</h2>
+      <p class="section-lead">
+        The portfolio is meant to show how CEGE scopes product work, presents the system clearly,
+        and leaves clients with a practical asset they can operate, test, or extend.
       </p>
     </div>
+
+    {
+      workItems.map((item) => (
+        <article class="case-study-row">
+          <div class="case-study-media">
+            <img src={item.image} alt={`${item.shortTitle} portfolio artifact`} loading="lazy" />
+          </div>
+          <div class="case-study-copy">
+            <p class="eyebrow">{item.role}</p>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <p class="case-outcome">{item.outcome}</p>
+            <ul class="tag-list" aria-label={`${item.title} skills and deliverables`}>
+              {item.tags.map((tag) => <li>{tag}</li>)}
+            </ul>
+          </div>
+        </article>
+      ))
+    }
   </div>
 </section>
 
-<CTASection title="Have a product category in mind?" lead="Share the platform, audience, and outcome. CEGE will help shape the first practical version." />
+<CTASection
+  title="Have a product or workflow that needs a usable first version?"
+  lead="Share the outcome, audience, platform, and timeline. CEGE can help shape the scope, build path, and handoff."
+/>

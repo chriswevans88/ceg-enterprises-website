@@ -1,5 +1,7 @@
 ---
 import CTASection from '../components/CTASection.astro';
+import GlassCard from '../components/GlassCard.astro';
+import Icon from '../components/Icon.astro';
 import ProcessTimeline from '../components/ProcessTimeline.astro';
 import SectionShell from '../components/SectionShell.astro';
 import ServiceCard from '../components/ServiceCard.astro';
@@ -7,26 +9,27 @@ import StudioVisual from '../components/StudioVisual.astro';
 import TrustStrip from '../components/TrustStrip.astro';
 import WorkGrid from '../components/WorkGrid.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { services } from '../data/site';
+import { services, studioValues } from '../data/site';
 
-const title = 'CEGE Enterprises LLC | Product Engineering Studio';
+const title = 'CEGE Enterprises LLC | AI Automation, Mobile Apps & Web Systems';
 const description =
-  'CEGE Enterprises LLC is a founder-led digital product studio building mobile apps, modern websites, and intelligent digital systems with launch-grade polish.';
+  'CEGE Enterprises LLC builds business-ready AI automations, iOS and Android app experiences, web apps, MVP prototypes, dashboards, and lead-generation systems.';
 ---
 
 <BaseLayout title={title} description={description}>
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Digital product studio</p>
-        <h1>Mobile apps, websites, and AI systems built with <span class="no-break">launch-grade</span> polish.</h1>
+        <p class="eyebrow">CEGE Enterprises LLC</p>
+        <h1>AI automation, mobile apps, web apps, and lead systems for business-ready digital products.</h1>
         <p class="hero-lead">
-          CEGE Enterprises LLC is a founder-led studio focused on modern product strategy,
-          clean engineering, and polished digital experiences.
+          CEGE helps plan, design, and build practical digital systems: GPT assistants, native and
+          cross-platform app experiences, conversion websites, MVP prototypes, dashboards,
+          follow-up workflows, and launch assets.
         </p>
         <div class="hero-actions">
           <a class="button button-primary" href="/contact/#inquiry">Start a Project</a>
-          <a class="button button-ghost" href="/services/">View Services</a>
+          <a class="button button-ghost" href="/work/">View Portfolio</a>
         </div>
       </div>
       <StudioVisual />
@@ -38,9 +41,9 @@ const description =
 
   <SectionShell
     id="services"
-    eyebrow="Services"
-    title="End-to-end digital product execution."
-    lead="From first product decisions to release support, CEGE builds lean, polished systems for mobile, web, and AI-enabled workflows."
+    eyebrow="What CEGE Builds"
+    title="Focused service lines for products, workflows, and client acquisition systems."
+    lead="The work spans mobile app planning, AI automation, web experiences, MVP development, lead recovery, dashboards, and brand production systems."
   >
     <div class="card-grid card-grid-3">
       {services.map((service) => <ServiceCard service={service} />)}
@@ -50,44 +53,67 @@ const description =
   <SectionShell
     id="work"
     variant="band"
-    eyebrow="Selected Work"
-    title="Product experiences shaped for clarity and trust."
-    lead="Representative categories across app, web, AI, analytics, operations, and commerce work."
+    eyebrow="Portfolio"
+    title="Selected work with visible product and workflow context."
+    lead="Public examples show how CEGE approaches operational tools, lead capture, launch dashboards, conversion websites, and AI-assisted production systems."
   >
     <WorkGrid limit={3} />
     <div class="section-actions">
-      <a class="text-link" href="/work/">View product categories</a>
+      <a class="text-link" href="/work/">View all selected work</a>
     </div>
   </SectionShell>
 
-  <SectionShell
-    id="process"
-    eyebrow="Process"
-    title="A clear process. Predictable progress."
-    lead="A structured path keeps product quality, privacy, responsiveness, and launch needs visible from the beginning."
-  >
-    <ProcessTimeline />
-  </SectionShell>
-
-  <section class="section-shell section-tight">
+  <section class="section-shell section-tight founder-note">
     <div class="container studio-split">
       <div>
-        <p class="eyebrow">About CEGE</p>
-        <h2>A founder-led studio for products that need to ship well.</h2>
+        <p class="eyebrow">Founder-Led Delivery</p>
+        <h2>A practical build partner for defined goals, early products, and operational systems.</h2>
       </div>
       <div class="stacked-copy">
         <p>
-          CEGE Enterprises LLC designs and builds digital products with a focus on quality,
-          restraint, and dependable execution.
+          CEGE is structured for clients who need clear product thinking and hands-on execution
+          without a bloated agency process. The work is scoped around business outcomes, clean
+          interfaces, reliable handoffs, and a professional public presence.
         </p>
         <p>
-          The work is mobile-first, privacy-conscious, and organized around clear product
-          decisions instead of unnecessary complexity.
+          The best-fit engagement usually has a clear goal and a practical deadline: a mobile app
+          concept that needs a build path, a website that needs stronger conversion, an internal
+          workflow that needs automation, or a first version that needs to be credible enough to use.
         </p>
-        <a class="text-link" href="/about/">Learn about CEGE</a>
+        <a class="text-link" href="/about/">Learn about the studio</a>
       </div>
     </div>
   </section>
 
-  <CTASection />
+  <SectionShell
+    id="process"
+    eyebrow="How It Moves"
+    title="Fast timelines still need structure."
+    lead="A fixed-scope project works when the business goal, target platform, interface, automation logic, release needs, and handoff are visible from the beginning."
+  >
+    <ProcessTimeline />
+  </SectionShell>
+
+  <SectionShell
+    variant="band"
+    eyebrow="Operating Style"
+    title="A delivery style built around clarity, accountability, and launch readiness."
+  >
+    <div class="card-grid card-grid-4">
+      {
+        studioValues.map((value) => (
+          <GlassCard class="value-card">
+            <span class="icon-badge"><Icon name={value.icon} /></span>
+            <h3>{value.title}</h3>
+            <p>{value.description}</p>
+          </GlassCard>
+        ))
+      }
+    </div>
+  </SectionShell>
+
+  <CTASection
+    title="Need the first version to feel polished, credible, and ready for review?"
+    lead="Send a concise project note with the outcome, target platform, timeline, and what already exists."
+  />
 </BaseLayout>

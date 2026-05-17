@@ -1,53 +1,33 @@
 ---
-import BrandIcon from './BrandIcon.astro';
 import Icon from './Icon.astro';
 ---
 
-<div class="studio-visual" aria-label="Launch-grade product system preview">
+<div class="studio-visual" aria-label="CEGE portfolio system preview">
   <div class="visual-frame visual-frame-main">
-    <div class="visual-topbar">
-      <span class="status-dot"></span>
-      <span class="status-dot status-dot-blue"></span>
-      <span class="status-dot status-dot-violet"></span>
-    </div>
-    <div class="visual-grid">
-      <div>
-        <p class="visual-label">Product System</p>
-        <h2>Launch-grade UI, architecture, and support paths.</h2>
-      </div>
+    <div class="visual-header">
+      <p class="visual-label">Portfolio-backed build studio</p>
       <div class="visual-pill">
-        <Icon name="shield" size={16} />
-        Review Ready
+        <Icon name="check" size={16} />
+        Business ready
       </div>
     </div>
-    <div class="chart" aria-hidden="true">
-      <svg viewBox="0 0 420 140" role="presentation">
-        <defs>
-          <linearGradient id="chartGradient" x1="0" y1="0" x2="420" y2="0" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stop-color="#35d7ff" />
-            <stop offset="0.55" stop-color="#2488ff" />
-            <stop offset="1" stop-color="#8b74ff" />
-          </linearGradient>
-        </defs>
-        <path class="chart-grid" d="M0 112H420M0 76H420M0 40H420" />
-        <path class="chart-line" d="M5 118C55 98 72 52 115 72C152 89 164 38 205 48C250 59 252 105 300 86C340 70 350 30 415 20" />
-      </svg>
+    <div class="visual-feature">
+      <img
+        src="/work/internal-ops-gpt-command-center.jpg"
+        alt="Internal Ops GPT Command Center portfolio preview"
+        loading="eager"
+      />
     </div>
     <div class="visual-modules">
-      <span>Strategy</span>
-      <span>Design</span>
-      <span>Build</span>
-      <span>Launch</span>
+      <span>Mobile apps</span>
+      <span>AI workflows</span>
+      <span>Lead systems</span>
+      <span>MVP sprints</span>
     </div>
   </div>
 
-  <div class="visual-frame visual-phone">
-    <div class="phone-speaker"></div>
-    <span class="brand-chip">
-      <BrandIcon idPrefix="brand-visual-phone" />
-    </span>
-    <h3>Build something exceptional.</h3>
-    <p>Focused product work for mobile, web, and AI systems.</p>
-    <a href="/contact/#inquiry">Start</a>
+  <div class="visual-stack" aria-hidden="true">
+    <img src="/work/lead-recovery-landing-crm.jpg" alt="" loading="eager" />
+    <img src="/work/ai-brandpost-agent.jpg" alt="" loading="eager" />
   </div>
 </div>

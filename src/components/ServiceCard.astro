@@ -6,6 +6,8 @@ interface Props {
   service: {
     title: string;
     description: string;
+    outcome?: string;
+    deliverables?: string[];
     icon: string;
   };
 }
@@ -19,4 +21,10 @@ const { service } = Astro.props;
   </span>
   <h3>{service.title}</h3>
   <p>{service.description}</p>
+  {service.outcome && <p class="service-outcome">{service.outcome}</p>}
+  {service.deliverables && (
+    <ul class="tag-list service-tags" aria-label={`${service.title} deliverables`}>
+      {service.deliverables.map((item) => <li>{item}</li>)}
+    </ul>
+  )}
 </GlassCard>

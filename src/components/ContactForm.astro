@@ -19,16 +19,28 @@ import { company } from '../data/site';
     <label for="project-type">Project Type</label>
     <select id="project-type" name="Project Type" required>
       <option value="">Select one</option>
-      <option>Mobile app</option>
-      <option>Website or web platform</option>
-      <option>AI workflow or automation</option>
-      <option>Product strategy</option>
-      <option>Launch or support</option>
+      <option>Mobile app strategy or prototype</option>
+      <option>AI agent or GPT workflow</option>
+      <option>Lead system or CRM follow-up</option>
+      <option>Website or landing page</option>
+      <option>Web app or MVP prototype</option>
+      <option>Launch dashboard or operations system</option>
+      <option>Brand/content automation</option>
     </select>
   </div>
+  <div class="form-row form-row-split">
+    <div>
+      <label for="timeline">Timeline <span>(optional)</span></label>
+      <input id="timeline" name="Timeline" type="text" placeholder="Example: 2-4 weeks" />
+    </div>
+    <div>
+      <label for="source">How You Found CEGE <span>(optional)</span></label>
+      <input id="source" name="Source" type="text" placeholder="Search, marketplace, referral..." />
+    </div>
+  </div>
   <div class="form-row">
-    <label for="message">Project Notes</label>
+    <label for="message">What needs to happen?</label>
     <textarea id="message" name="Project Notes" rows="6" required></textarea>
   </div>
-  <button class="button button-primary" type="submit">Send Inquiry</button>
+  <button class="button button-primary" type="submit">Send Project Notes</button>
 </form>

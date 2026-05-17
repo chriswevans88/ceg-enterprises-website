@@ -8,7 +8,7 @@ import { company, trustItems } from '../data/site';
 
 const title = 'Contact | CEGE Enterprises LLC';
 const description =
-  'Contact CEGE Enterprises LLC for product strategy, mobile app development, website development, AI workflows, and support inquiries.';
+  'Contact CEGE Enterprises LLC for mobile app planning, AI automation, GPT workflows, lead systems, website redesigns, MVP prototypes, dashboards, and support inquiries.';
 ---
 
 <BaseLayout title={title} description={description}>
@@ -16,10 +16,10 @@ const description =
     <div class="container contact-grid">
       <div>
         <p class="eyebrow">Contact</p>
-        <h1>Start a conversation.</h1>
+        <h1>Tell CEGE what needs to be built, improved, or prepared for launch.</h1>
         <p class="hero-lead">
-          Share the product, platform, or workflow you want to build. CEGE will respond through
-          a direct company contact path.
+          Useful starting points include the business goal, target platform, intended users,
+          current materials, timeline, and what a successful first version should accomplish.
         </p>
         <div class="contact-cards">
           <GlassCard class="contact-card">
@@ -37,7 +37,7 @@ const description =
 
       <GlassCard id="inquiry" class="inquiry-panel">
         <h2>Project Inquiry</h2>
-        <p>Concise details are enough to begin.</p>
+        <p>Short, specific notes are enough to start.</p>
         <ContactForm />
       </GlassCard>
     </div>
@@ -48,17 +48,18 @@ const description =
       <TrustStrip />
       <div class="support-grid">
         <GlassCard>
-          <span class="icon-badge"><Icon name="shield" /></span>
-          <h2>Support Path</h2>
+          <span class="icon-badge"><Icon name="check" /></span>
+          <h2>Comparing public profiles?</h2>
           <p>
-            For support or privacy-related questions, use the domain-based company email.
+            This company site is kept consistent with CEGE's public marketplace profile, portfolio,
+            and current service positioning.
           </p>
-          <a class="text-link" href={`mailto:${company.supportEmail}?subject=Support%20Request`}>Contact Support</a>
+          <a class="text-link" href={company.upworkUrl}>View marketplace profile</a>
         </GlassCard>
         <GlassCard>
           <span class="icon-badge"><Icon name="lock" /></span>
-          <h2>Privacy</h2>
-          <p>{trustItems[1].description}</p>
+          <h2>Privacy and support</h2>
+          <p>{trustItems[5].description}</p>
           <a class="text-link" href="/privacy/">Read the Privacy Policy</a>
         </GlassCard>
       </div>
